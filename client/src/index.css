@@ -1,0 +1,338 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    /* ========== BRAND COLORS ========== */
+    --primary: #2D6A4F;          /* Deep Forest Green */
+    --primary-hover: #1B4332;    /* Darker Forest Green */
+    --primary-light: #D8F3DC;    /* Soft Mint Tint */
+    --accent: #B7791F;           /* Warm Gold */
+    --accent-light: #FEF3C7;     /* Soft Amber Tint */
+
+    /* ========== BACKGROUND GRADIENTS (Backgrounds ONLY) ========== */
+    --bg-page: linear-gradient(160deg, #F0FDF4 0%, #ECFDF5 40%, #F0F9FF 80%, #FFFFFF 100%);
+    --bg-hero: linear-gradient(135deg, #D1FAE5 0%, #A7F3D0 50%, #BAE6FD 100%);
+    --bg-hero-dark: linear-gradient(135deg, #064E3B 0%, #065F46 50%, #1E3A5F 100%);
+    --bg-card: #FFFFFF;
+    --bg-card-subtle: #F9FAFB;
+    --bg-section: linear-gradient(180deg, #F0FDF4 0%, #ECFDF5 100%);
+
+    /* ========== SOLID TYPOGRAPHY (NO GRADIENTS ON TEXT) ========== */
+    --text-heading: #111827;      /* Almost Black */
+    --text-body: #374151;         /* Dark Gray */
+    --text-muted: #6B7280;        /* Medium Gray */
+    --text-accent: #2D6A4F;       /* Forest Green */
+    --text-white: #FFFFFF;
+
+    /* ========== SURFACES & BORDERS ========== */
+    --border-soft: #E5E7EB;
+    --border-accent: #6EE7B7;
+    --shadow-sm: 0 1px 3px rgba(0,0,0,0.06), 0 1px 2px rgba(0,0,0,0.04);
+    --shadow-md: 0 4px 16px rgba(0,0,0,0.06), 0 2px 6px rgba(0,0,0,0.04);
+    --shadow-lg: 0 10px 32px rgba(45,106,79,0.10), 0 4px 10px rgba(0,0,0,0.05);
+    --shadow-xl: 0 20px 50px rgba(45,106,79,0.14), 0 8px 16px rgba(0,0,0,0.06);
+
+    /* ========== STATUS BADGE COLORS ========== */
+    --badge-green-bg: #ECFDF5;
+    --badge-green-text: #065F46;
+    --badge-green-border: #6EE7B7;
+
+    --badge-amber-bg: #FFFBEB;
+    --badge-amber-text: #92400E;
+    --badge-amber-border: #FCD34D;
+
+    --badge-blue-bg: #EFF6FF;
+    --badge-blue-text: #1D4ED8;
+    --badge-blue-border: #BFDBFE;
+
+    --badge-red-bg: #FEF2F2;
+    --badge-red-text: #991B1B;
+    --badge-red-border: #FECACA;
+
+    /* ========== TV DISPLAY (Dark + Solid White/Gold Text) ========== */
+    --tv-bg: linear-gradient(160deg, #022C22 0%, #064E3B 40%, #065F46 80%, #0D3023 100%);
+    --tv-gold: #F59E0B;
+    --tv-green: #34D399;
+  }
+
+  body {
+    background-image: var(--bg-page);
+    background-attachment: fixed;
+    background-size: cover;
+    color: var(--text-heading);
+    font-family: 'Poppins', 'Inter', 'Noto Sans Gujarati', system-ui, -apple-system, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    min-height: 100vh;
+  }
+}
+
+/* ============================================================
+   CARD SYSTEM
+   ============================================================ */
+
+/* Standard card */
+.salon-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-soft);
+  box-shadow: var(--shadow-md);
+  border-radius: 1.25rem;
+}
+
+/* Elevated card with green accent border */
+.salon-card-elevated {
+  background: var(--bg-card);
+  border: 1px solid var(--border-accent);
+  box-shadow: var(--shadow-lg);
+  border-radius: 1.25rem;
+}
+
+/* Hero banner card — gradient background */
+.salon-card-hero {
+  background-image: var(--bg-hero);
+  border: 1px solid #A7F3D0;
+  box-shadow: var(--shadow-xl);
+  border-radius: 1.5rem;
+}
+
+/* Stat / KPI card */
+.kpi-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-soft);
+  box-shadow: var(--shadow-sm);
+  border-radius: 1rem;
+}
+
+/* ============================================================
+   BUTTON SYSTEM (All buttons: solid colors, min 44px)
+   ============================================================ */
+
+/* Primary — Forest Green */
+.btn-primary {
+  background-color: var(--primary);
+  color: #FFFFFF;
+  font-weight: 700;
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0.875rem;
+  padding: 0.625rem 1.375rem;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 4px 14px 0 rgba(45, 106, 79, 0.28);
+  font-size: 0.875rem;
+}
+.btn-primary:hover:not(:disabled) {
+  background-color: var(--primary-hover);
+  transform: translateY(-1px);
+  box-shadow: 0 6px 20px 0 rgba(45, 106, 79, 0.36);
+}
+.btn-primary:active:not(:disabled) { transform: translateY(0); }
+.btn-primary:disabled { opacity: 0.45; cursor: not-allowed; box-shadow: none; }
+
+/* Secondary — white with border */
+.btn-secondary {
+  background-color: #FFFFFF;
+  color: var(--text-heading);
+  border: 1.5px solid var(--border-soft);
+  font-weight: 600;
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0.875rem;
+  padding: 0.625rem 1.375rem;
+  transition: all 0.2s ease;
+  font-size: 0.875rem;
+}
+.btn-secondary:hover:not(:disabled) {
+  background-color: var(--bg-card-subtle);
+  border-color: #D1D5DB;
+}
+
+/* Gold accent button */
+.btn-accent {
+  background-color: var(--accent);
+  color: #FFFFFF;
+  font-weight: 700;
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0.875rem;
+  padding: 0.625rem 1.375rem;
+  transition: all 0.2s ease;
+  box-shadow: 0 4px 14px 0 rgba(183, 121, 31, 0.28);
+  font-size: 0.875rem;
+}
+.btn-accent:hover:not(:disabled) {
+  background-color: #92650F;
+  transform: translateY(-1px);
+}
+
+/* Danger */
+.btn-danger {
+  background-color: #DC2626;
+  color: #FFFFFF;
+  font-weight: 700;
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0.875rem;
+  padding: 0.625rem 1.375rem;
+  transition: all 0.2s ease;
+  font-size: 0.875rem;
+}
+.btn-danger:hover:not(:disabled) { background-color: #B91C1C; }
+
+/* ============================================================
+   BADGE / PILL SYSTEM
+   ============================================================ */
+.badge-green {
+  background: var(--badge-green-bg);
+  color: var(--badge-green-text);
+  border: 1px solid var(--badge-green-border);
+  font-weight: 700;
+  font-size: 0.6875rem;
+  padding: 0.2rem 0.6rem;
+  border-radius: 9999px;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+.badge-amber {
+  background: var(--badge-amber-bg);
+  color: var(--badge-amber-text);
+  border: 1px solid var(--badge-amber-border);
+  font-weight: 700;
+  font-size: 0.6875rem;
+  padding: 0.2rem 0.6rem;
+  border-radius: 9999px;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+.badge-blue {
+  background: var(--badge-blue-bg);
+  color: var(--badge-blue-text);
+  border: 1px solid var(--badge-blue-border);
+  font-weight: 700;
+  font-size: 0.6875rem;
+  padding: 0.2rem 0.6rem;
+  border-radius: 9999px;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+.badge-red {
+  background: var(--badge-red-bg);
+  color: var(--badge-red-text);
+  border: 1px solid var(--badge-red-border);
+  font-weight: 700;
+  font-size: 0.6875rem;
+  padding: 0.2rem 0.6rem;
+  border-radius: 9999px;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+/* ============================================================
+   FORM INPUTS
+   ============================================================ */
+.salon-input {
+  width: 100%;
+  padding: 0.65rem 1rem;
+  border-radius: 0.75rem;
+  background: #F9FAFB;
+  border: 1.5px solid var(--border-soft);
+  color: var(--text-heading);
+  font-size: 0.875rem;
+  min-height: 44px;
+  transition: all 0.2s ease;
+}
+.salon-input:focus {
+  outline: none;
+  background: #FFFFFF;
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(45, 106, 79, 0.10);
+}
+.salon-input::placeholder { color: #9CA3AF; }
+
+/* ============================================================
+   SECTION LABEL
+   ============================================================ */
+.section-label {
+  font-size: 0.6875rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  display: flex;
+  align-items: center;
+  gap: 0.375rem;
+}
+
+/* ============================================================
+   SCROLLBAR
+   ============================================================ */
+::-webkit-scrollbar { width: 5px; height: 5px; }
+::-webkit-scrollbar-track { background: rgba(243, 244, 246, 0.5); }
+::-webkit-scrollbar-thumb { background: rgba(156, 163, 175, 0.4); border-radius: 9999px; }
+::-webkit-scrollbar-thumb:hover { background: rgba(107, 114, 128, 0.6); }
+
+/* ============================================================
+   ANIMATIONS
+   ============================================================ */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(16px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes pulseGlow {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(45, 106, 79, 0.3); }
+  50%       { box-shadow: 0 0 0 10px rgba(45, 106, 79, 0); }
+}
+@keyframes shimmer {
+  0%   { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+.fade-in-up { animation: fadeInUp 0.4s ease-out both; }
+.pulse-glow { animation: pulseGlow 2s ease infinite; }
+
+/* Skeleton loading shimmer */
+.skeleton {
+  background: linear-gradient(90deg, #F3F4F6 25%, #E5E7EB 50%, #F3F4F6 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.4s infinite;
+  border-radius: 0.75rem;
+}
+
+/* ============================================================
+   TV DISPLAY — dark deep forest gradient, solid text
+   ============================================================ */
+.tv-screen {
+  background-image: var(--tv-bg);
+  min-height: 100vh;
+  color: #FFFFFF;
+}
+.tv-token-gold { color: var(--tv-gold); }
+.tv-token-green { color: var(--tv-green); }
+
+/* ============================================================
+   STEP INDICATOR
+   ============================================================ */
+.step-dot-done {
+  background: #059669;
+  color: #FFFFFF;
+}
+.step-dot-current {
+  background: var(--primary);
+  color: #FFFFFF;
+  animation: pulseGlow 2s ease infinite;
+}
+.step-dot-upcoming {
+  background: #E5E7EB;
+  color: #9CA3AF;
+}
