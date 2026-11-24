@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import {
   Scissors, Clock, Check, AlertCircle, ArrowLeft,
-  User, Phone, Sparkles, Zap,
+  User, Sparkles, Zap,
 } from 'lucide-react';
 import { api } from '../services/api';
 import type { Service, Barber } from '../types';
