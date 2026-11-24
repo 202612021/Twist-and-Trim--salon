@@ -193,7 +193,7 @@ export const JoinQueue: React.FC = () => {
                   maxLength={10}
                   value={phone}
                   onChange={(e) => setPhone(e.target.value.replace(/\D/g, ''))}
-                  placeholder="9876543210"
+                  
                   className="salon-input pl-20 font-mono"
                 />
               </div>
