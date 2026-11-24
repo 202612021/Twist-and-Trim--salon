@@ -184,9 +184,7 @@ export const JoinQueue: React.FC = () => {
                 {t('phoneNumber')} *
               </label>
               <div className="relative">
-                <span className="absolute left-3.5 top-3 flex items-center gap-1 text-sm font-bold" style={{ color: 'var(--text-muted)' }}>
-                  <Phone className="w-3.5 h-3.5" style={{ color: 'var(--primary)' }} /> +91
-                </span>
+               
                 <input
                   type="tel"
                   required
@@ -194,7 +192,7 @@ export const JoinQueue: React.FC = () => {
                   value={phone}
                   onChange={(e) => setPhone(e.target.value.replace(/\D/g, ''))}
                   
-                  className="salon-input pl-20 font-mono"
+                  className="salon-input font-mono"
                 />
               </div>
               {phone.length > 0 && !isPhoneValid && (
