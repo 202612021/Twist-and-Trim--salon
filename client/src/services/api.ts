@@ -1,6 +1,8 @@
 import type { Service, Barber, QueueEntry, SalonOverview, AdminStats } from '../types';
 
-const BASE_URL = '/api';
+const BASE_URL = window.location.hostname === 'localhost'
+  ? '/api'
+  : 'https://twist-and-trim-salon.onrender.com/api';
 
 export const api = {
   async getOverview(): Promise<SalonOverview> {
